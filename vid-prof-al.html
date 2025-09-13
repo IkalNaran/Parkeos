@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkeo's - Mi Código QR</title>
+    
+    <link rel="stylesheet" href="C:\Users\moise\Desktop\SOFTWARE\clases\vid-prof.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <header class="header">
+            <div class="header-title">
+                <h1>Parkeo's</h1>
+                <p>Bienvenido de vuelta, Juan Pérez</p>
+            </div>
+            <div class="header-actions">
+                <i class='bx bx-cog'></i>
+                <i class='bx bx-plus-circle'></i>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <a href="#" class="tab">
+                <i class='bx bx-grid-alt'></i> Resumen
+            </a>
+            <a href="#" class="tab active">
+                <i class='bx bx-qr-scan'></i> Mi Código QR
+            </a>
+            <a href="#" class="tab">
+                <i class='bx bx-map-alt'></i> Mapa de Estacionamiento
+            </a>
+        </nav>
+
+        <main>
+            <section class="card qr-card">
+                <i class='bx bx-qr' style="font-size: 1.75rem; color: var(--primary-blue);"></i>
+                <h2>Tu Código QR de Estacionamiento</h2>
+                <p class="subtitle">Escanea este código para verificar tu acceso al estacionamiento</p>
+                
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=VEH-12345-ABC1234" alt="Código QR" class="qr-image">
+
+                <div class="vehicle-code">
+                    <p>Código del Vehículo</p>
+                    <strong>VEH-12345-ABC1234</strong>
+                </div>
+
+                <div class="qr-actions">
+                    <button class="action-btn">
+                        <i class='bx bx-download'></i> Descargar
+                    </button>
+                    <button class="action-btn">
+                        <i class='bx bx-share-alt'></i> Compartir
+                    </button>
+                </div>
+            </section>
+
+            <section class="card details-card">
+                <h3>Detalles del Vehículo</h3>
+                <p class="subtitle">Información vinculada a este código QR</p>
+                <div class="details-list">
+                    <div class="detail-item">
+                        <span class="label">Propietario</span>
+                        <span class="value">Juan Pérez</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Tipo de Usuario</span>
+                        <span class="value value-pill">Estudiante</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Vehículo</span>
+                        <span class="value">Toyota Camry</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Placa</span>
+                        <span class="value">ABC-1234</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Zona de Estacionamiento</span>
+                        <span class="value value-pill">Zona del Rafael</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card usage-card">
+                <h3>Cómo Usar</h3>
+                <ul>
+                    <li>Presenta este código QR en las entradas del estacionamiento.</li>
+                    <li>Los guardias de seguridad pueden escanear para verificar tu acceso.</li>
+                    <li>Mantén tu código privado y seguro.</li>
+                    <li>Reporta códigos perdidos inmediatamente al administrador.</li>
+                </ul>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

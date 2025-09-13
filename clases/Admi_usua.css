@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #0d6efd;
+    --light-blue: #eef5ff;
+    --dark-text: #212529;
+    --medium-text: #6c757d;
+    --light-text: #adb5bd;
+    --background: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --green: #198754;
+    --red: #dc3545;
+    --yellow: #ffc107;
+    --purple: #6f42c1;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--dark-text);
+    margin: 0;
+    padding: 2rem;
+}
+
+.admin-panel-container {
+    max-width: 1100px;
+    margin: auto;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+    border: 1px solid var(--border-color);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0c204b; /* Azul oscuro */
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+.main-header .title h1 { margin: 0; font-size: 1.5rem; }
+.main-header .title p { margin: 0.25rem 0 0; color: var(--light-text); font-size: 0.9rem; }
+.main-header .user-actions { display: flex; align-items: center; gap: 1.5rem; }
+.main-header .user-actions i { font-size: 1.5rem; cursor: pointer; }
+.main-header .user-actions a { color: white; text-decoration: none; font-weight: 500; }
+
+.top-nav {
+    display: flex;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+}
+.top-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    text-decoration: none;
+    color: var(--medium-text);
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.top-nav a:hover { background-color: #e9ecef; }
+.top-nav a.active {
+    background-color: var(--card-bg);
+    color: var(--primary-blue);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.top-nav i { font-size: 1.25rem; }
+
+.content { padding: 1.5rem 2rem; }
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.content-header .title h2 { margin: 0; font-size: 1.75rem; }
+.content-header .title p { margin: 0.25rem 0 0; color: var(--medium-text); }
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.search-bar input {
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    min-width: 250px;
+    outline: none;
+}
+.search-bar button {
+    border: none;
+    background: transparent;
+    padding: 0.75rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--medium-text);
+    border-left: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+}
+
+
+.filter-tabs { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+.filter-tabs button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    color: var(--dark-text);
+    transition: all 0.2s ease;
+}
+.filter-tabs button:hover { border-color: #b3b3b3; }
+.filter-tabs button.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.user-list .user-card {
+    display: grid;
+    grid-template-columns: 50px 1.5fr 1fr 220px;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.user-list .user-card:last-child { border-bottom: none; }
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--medium-text);
+}
+.user-details, .vehicle-details { display: flex; flex-direction: column; gap: 0.5rem; }
+.user-name { font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; margin: 0; }
+.user-contact, .user-role, .vehicle-plate { color: var(--medium-text); display: flex; align-items: center; gap: 0.5rem; margin: 0; }
+.vehicle-model { color: var(--medium-text); margin: 0 0 0 1.75rem; }
+.user-card i { font-size: 1.1rem; color: var(--light-text); }
+.user-footer { grid-column: 2 / -1; padding-top: 1rem; margin-top: 0.5rem; border-top: 1px solid #f1f3f5; }
+.user-footer p { margin: 0; color: var(--medium-text); font-size: 0.9rem; }
+
+.status {
+    font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; color: var(--dark-text);
+}
+.status.pending { background-color: var(--yellow); }
+.status.approved { background-color: var(--green); color: white; }
+.status.rejected { background-color: var(--red); color: white; }
+
+.tag {
+    font-size: 0.8rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 999px; border: 1px solid;
+}
+.tag.auto { border-color: var(--primary-blue); color: var(--primary-blue); }
+.tag.motocicleta { border-color: var(--purple); color: var(--purple); }
+
+.action-buttons {
+    display: flex; gap: 0.5rem; align-items: center;
+}
+.action-buttons button {
+    display: flex; align-items: center; gap: 0.5rem; flex-grow: 1; padding: 0.6rem; font-size: 0.9rem;
+    font-weight: 600; border-radius: 8px; border: none; color: white; cursor: pointer; justify-content: center;
+}
+.approve-btn { background-color: var(--green); }
+.reject-btn { background-color: var(--red); }

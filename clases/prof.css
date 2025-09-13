@@ -1,0 +1,104 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  font-family: "Lato", sans-serif;
+}
+
+.Sesion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.formulario {
+  background-color: white;
+  width: 400px;
+  border-radius: 10px;
+  padding: 30px 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.titulo {
+  font-size: 22px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #222;
+}
+
+.paso {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.barra-progreso {
+  width: 100%;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.progreso {
+  width: 65%; /* representa paso 2 de 3 */
+  height: 100%;
+  background-color: #1a3dff;
+  border-radius: 2px;
+}
+
+.fila {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.contenedor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #111;
+  font-weight: 600;
+}
+
+.input {
+  height: 40px;
+  border: 1px solid #DADCE0;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 0 12px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #1a3dff;
+}
+
+.boton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #1a3dff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.boton:hover {
+  background-color: #0019cc;
+}
+
+.boton:hover {
+  background-color: #5B0A6B;
+}

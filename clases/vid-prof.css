@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #190BDA;
+    --light-blue: #e8f0fe;
+    --dark-text: #202a3a;
+    --medium-text: #5a6474;
+    --light-text: #8c96a8;
+    --background: #f4f7fa;
+    --card-bg: #ffffff;
+    --border-color: #e5e9f0;
+    --pill-bg: #e0f2fe;
+    --pill-text: #0ea5e9;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--dark-text);
+    margin: 0;
+    padding: 2rem;
+}
+
+.main-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header-title h1 {
+    font-size: 1.75rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.header-title p {
+    margin: 0.25rem 0 0;
+    color: var(--medium-text);
+}
+
+.header-actions i {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    color: var(--medium-text);
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: var(--medium-text);
+    background-color: transparent;
+}
+
+.tab i {
+    font-size: 1.25rem;
+}
+
+.tab.active {
+    background-color: var(--primary-blue);
+    color: white;
+    box-shadow: 0 4px 10px rgba(74, 128, 240, 0.3);
+}
+
+.tab:not(.active):hover {
+    background-color: #e9ecef;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+ 
+.qr-card {
+    text-align: center;
+}
+
+.qr-card h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.qr-card .subtitle {
+    color: var(--medium-text);
+    margin-bottom: 1.5rem;
+}
+
+.qr-image {
+    max-width: 200px;
+    margin: 1rem auto;
+    border: 5px solid white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-code {
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem auto;
+}
+
+.vehicle-code p {
+    margin: 0;
+    color: var(--medium-text);
+    font-size: 0.875rem;
+}
+
+.vehicle-code strong {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 1.1rem;
+    color: var(--dark-text);
+    letter-spacing: 1px;
+}
+ 
+.qr-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+ 
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--dark-text);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+ 
+.action-btn:hover {
+    border-color: #cdd4df;
+    background-color: #f8f9fa;
+}
+ 
+.action-btn i {
+    font-size: 1.25rem;
+}
+
+.details-card h3 {
+    margin-top: 0;
+}
+
+.details-card .subtitle {
+    color: var(--medium-text);
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item .label {
+    color: var(--medium-text);
+}
+
+.detail-item .value {
+    font-weight: 600;
+    text-align: right;
+}
+
+.value-pill {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: var(--pill-bg);
+    color: var(--pill-text);
+}
+
+.usage-card ul {
+    padding-left: 1.5rem;
+    margin: 0;
+    color: var(--medium-text);
+    line-height: 1.6;
+}
+ 
+.usage-card li {
+    margin-bottom: 0.75rem;
+}
+ 
+.usage-card li:last-child {
+    margin-bottom: 0;
+}

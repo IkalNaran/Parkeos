@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkeo's</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        :root {
+            --primary-blue: #0d6efd;
+            --light-blue: #eef5ff;
+            --dark-text: #212529;
+            --medium-text: #6c757d;
+            --light-text: #adb5bd;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --sidebar-bg: #0c204b; /* Azul oscuro para la barra lateral */
+            --sidebar-text: #aeb8d0;
+            --sidebar-active-text: #ffffff;
+            --green: #198754;
+            --red: #dc3545;
+            --yellow: #ffc107;
+            --purple: #6f42c1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--dark-text);
+            margin: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            border-bottom: 1px solid #1a2f5a;
+        }
+
+        .sidebar-nav {
+            flex-grow: 1;
+            padding: 1rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--sidebar-text);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav a:hover {
+            background-color: #1a2f5a;
+            color: white;
+        }
+
+        .sidebar-nav a.active {
+            background-color: var(--primary-blue);
+            color: var(--sidebar-active-text);
+            font-weight: 500;
+        }
+
+        .sidebar-nav i {
+            font-size: 1.5rem;
+        }
+        
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #1a2f5a;
+            color: var(--sidebar-text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .main-content {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+        
+        .page-header {
+            margin-bottom: 2rem;
+        }
+        .page-header h1 { font-size: 1.75rem; margin: 0; }
+        .page-header p { margin: 0.25rem 0 0; color: var(--medium-text); }
+
+        #user-view .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+        #user-view .qr-card { text-align: center; }
+        #user-view .qr-card h2 { font-size: 1.5rem; margin: 0 0 0.5rem 0; }
+        #user-view .qr-image { max-width: 200px; margin: 1rem auto; }
+        #user-view .qr-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+        #user-view .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; cursor: pointer; }
+        #user-view .detail-item { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
+        #user-view .detail-item:last-child { border-bottom: none; }
+        #user-view .value-pill { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.875rem; background-color: #e0f2fe; color: #0ea5e9; }
+
+        #admin-panel .admin-panel-container {
+            background-color: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color);
+        }
+        #admin-panel .top-nav { display: flex; padding: 0.5rem; border-bottom: 1px solid var(--border-color); }
+        #admin-panel .top-nav a { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; text-decoration: none; color: var(--medium-text); font-weight: 500; border-radius: 8px; }
+        #admin-panel .top-nav a.active { background-color: var(--light-blue); color: var(--primary-blue); }
+        #admin-panel .top-nav i { font-size: 1.25rem; }
+        #admin-panel .content { padding: 1.5rem 2rem; }
+        #admin-panel .search-bar { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+        #admin-panel .search-bar input { border: none; padding: 0.75rem 1rem; font-size: 1rem; min-width: 250px; outline: none; }
+        #admin-panel .search-bar button { border: none; background: transparent; padding: 0.75rem; cursor: pointer; font-size: 1.25rem; color: var(--medium-text); }
+        #admin-panel .filter-tabs { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+        #admin-panel .filter-tabs button { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; border: 1px solid var(--border-color); border-radius: 999px; cursor: pointer; background-color: #f8f9fa; }
+        #admin-panel .filter-tabs button.active { background-color: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+        #admin-panel .user-card { display: flex; flex-direction: column; padding: 1.5rem 0; border-bottom: 1px solid var(--border-color); }
+        #admin-panel .user-list .user-card:last-child { border-bottom: none; }
+        #admin-panel .user-main-info { display: grid; grid-template-columns: 50px 1fr 1fr 250px; gap: 1.5rem; align-items: flex-start; }
+        #admin-panel .avatar { width: 50px; height: 50px; border-radius: 50%; background-color: #e9ecef; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; color: var(--medium-text); }
+        #admin-panel .info-col p { margin: 0.5rem 0; }
+        #admin-panel .user-name { font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        #admin-panel .user-contact, #admin-panel .user-role, #admin-panel .vehicle-plate { color: var(--medium-text); display: flex; align-items: center; gap: 0.5rem; }
+        #admin-panel .vehicle-model { margin-left: 1.75rem; color: var(--medium-text); }
+        #admin-panel .info-col i { font-size: 1.1rem; color: var(--light-text); }
+        #admin-panel .status { font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; color: white; }
+        #admin-panel .status.pending { background-color: var(--yellow); }
+        #admin-panel .status.approved { background-color: var(--green); }
+        #admin-panel .status.rejected { background-color: var(--red); }
+        #admin-panel .tag { font-size: 0.8rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 999px; border: 1px solid; }
+        #admin-panel .tag.auto { border-color: var(--primary-blue); color: var(--primary-blue); }
+        #admin-panel .tag.motocicleta { border-color: var(--purple); color: var(--purple); }
+        #admin-panel .action-buttons { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
+        #admin-panel .action-buttons button { display: flex; align-items: center; gap: 0.5rem; flex-grow: 1; padding: 0.6rem; font-size: 0.9rem; font-weight: 600; border-radius: 8px; border: none; color: white; cursor: pointer; justify-content: center; }
+        #admin-panel .approve-btn { background-color: var(--green); }
+        #admin-panel .reject-btn { background-color: var(--red); }
+        #admin-panel .user-footer { padding-top: 1rem; margin-top: 1rem; border-top: 1px solid #f1f3f5; }
+        #admin-panel .user-footer p { margin: 0; color: var(--medium-text); font-size: 0.9rem; }
+        #admin-panel .user-card[data-status="aprobado"] .action-buttons,
+        #admin-panel .user-card[data-status="rechazado"] .action-buttons { display: none; }
+
+        #map-view .map-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        #map-view .map-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+        #map-view .map-filters select, #map-view .map-filters button {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: white;
+        }
+        #map-view .map-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            Parkeo's
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#user-view" class="nav-link active">
+                <i class='bx bxs-user-detail'></i>
+                <span>Mi Perfil</span>
+            </a>
+            <a href="#admin-panel" class="nav-link">
+                <i class='bx bxs-shield-alt-2'></i>
+                <span>Administración</span>
+            </a>
+            <a href="#map-view" class="nav-link">
+                <i class='bx bxs-map-alt'></i>
+                <span>Mapa</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <i class='bx bx-log-out'></i>
+            <span>Cerrar Sesión</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <div id="user-view" class="page-view active">
+            <header class="page-header">
+                <h1>Mi Código QR</h1>
+                <p>Bienvenido de vuelta, Juan Pérez</p>
+            </header>
+            <section class="card qr-card">
+                <h2>Tu Código QR de Estacionamiento</h2>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=VEH-12345-ABC1234" alt="Código QR" class="qr-image">
+                <div class="qr-actions">
+                    <button class="action-btn"><i class='bx bx-download'></i> Descargar</button>
+                    <button class="action-btn"><i class='bx bx-share-alt'></i> Compartir</button>
+                </div>
+            </section>
+            <section class="card details-card">
+                <h3>Detalles del Vehículo</h3>
+                <div class="detail-item"><span>Propietario</span><strong>Juan Pérez</strong></div>
+                <div class="detail-item"><span>Tipo de Usuario</span><span class="value-pill">Estudiante</span></div>
+                <div class="detail-item"><span>Vehículo</span><strong>Toyota Camry</strong></div>
+                <div class="detail-item"><span>Placa</span><strong>ABC-1234</strong></div>
+                <div class="detail-item"><span>Zona</span><span class="value-pill">Zona del Rafael</span></div>
+            </section>
+        </div>
+
+        <div id="admin-panel" class="page-view">
+            <div class="admin-panel-container">
+                <nav class="top-nav">
+                    <a href="#"><i class='bx bx-grid-alt'></i> Resumen</a>
+                    <a href="#" class="active"><i class='bx bxs-user'></i> Usuarios</a>
+                    <a href="#"><i class='bx bxs-car'></i> Vehículos</a>
+                    <a href="#"><i class='bx bxs-parking'></i> Estacionamiento</a>
+                </nav>
+                <div class="content">
+                    <header class="page-header">
+                        <h2>Gestión de Usuarios</h2>
+                        <p>Revisar y gestionar registros de usuarios</p>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Buscar usuarios..."><button><i class='bx bx-search'></i></button>
+                        </div>
+                    </header>
+                    <div class="filter-tabs">
+                        <button class="active">Todos los Usuarios (4)</button>
+                        <button>Pendientes (1)</button>
+                        <button>Aprobados (2)</button>
+                        <button>Rechazados (1)</button>
+                    </div>
+                    <div class="user-list">
+                        <div class="user-card" data-status="pendiente">
+                            <div class="user-main-info">
+                                <div class="avatar">JP</div>
+                                <div class="info-col">
+                                    <p class="user-name">Juan Pérez <span class="status pending">Pendiente</span></p>
+                                    <p class="user-role"><i class='bx bxs-user-circle'></i> Estudiante • ID: EST001234</p>
+                                    <p class="user-contact"><i class='bx bxs-envelope'></i> juan.perez@escuela.edu</p>
+                                    <p class="user-contact"><i class='bx bxs-phone'></i> +1 (555) 123-4567</p>
+                                </div>
+                                <div class="info-col">
+                                    <p class="vehicle-plate"><i class='bx bxs-car-garage'></i> ABC-1234 <span class="tag auto">auto</span></p>
+                                    <p class="vehicle-model">Toyota Camry</p>
+                                </div>
+                                <div class="info-col action-buttons">
+                                    <button class="approve-btn"><i class='bx bx-check'></i> Aprobar</button>
+                                    <button class="reject-btn"><i class='bx bx-block'></i> Rechazar</button>
+                                </div>
+                            </div>
+                            <div class="user-footer"><p>Registrado: 14/1/2024</p></div>
+                        </div>
+                        <div class="user-card" data-status="aprobado">
+                             <div class="user-main-info">
+                                <div class="avatar">MG</div>
+                                <div class="info-col">
+                                    <p class="user-name">María García <span class="status approved">Aprobado</span></p>
+                                    <p class="user-role"><i class='bx bxs-user-circle'></i> Profesor • Ciencias</p>
+                                    <p class="user-contact"><i class='bx bxs-envelope'></i> m.garcia@escuela.edu</p>
+                                    <p class="user-contact"><i class='bx bxs-phone'></i> +1 (555) 234-5678</p>
+                                </div>
+                                <div class="info-col">
+                                    <p class="vehicle-plate"><i class='bx bxs-car-garage'></i> XYZ-567B <span class="tag auto">auto</span></p>
+                                    <p class="vehicle-model">Honda Civic</p>
+                                </div>
+                            </div>
+                            <div class="user-footer"><p>Registrado: 13/1/2024</p></div>
+                        </div>
+                         <div class="user-card" data-status="rechazado">
+                            <div class="user-main-info">
+                                <div class="avatar">AR</div>
+                                <div class="info-col">
+                                    <p class="user-name">Ana Rodríguez <span class="status rejected">Rechazado</span></p>
+                                    <p class="user-role"><i class='bx bxs-user-circle'></i> Estudiante • ID: EST005678</p>
+                                    <p class="user-contact"><i class='bx bxs-envelope'></i> ana.rodriguez@escuela.edu</p>
+                                    <p class="user-contact"><i class='bx bxs-phone'></i> +1 (555) 456-7890</p>
+                                </div>
+                                <div class="info-col">
+                                    <p class="vehicle-plate"><i class='bx bxs-car-garage'></i> GHI-3456 <span class="tag auto">auto</span></p>
+                                    <p class="vehicle-model">BMW X3</p>
+                                </div>
+                            </div>
+                            <div class="user-footer"><p>Registrado: 11/1/2024</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="map-view" class="page-view">
+             <header class="page-header">
+                <h1>Mapa de Estacionamiento</h1>
+                <p>Visualiza la disponibilidad y las zonas del estacionamiento.</p>
+            </header>
+            <div class="map-container">
+                <div class="map-filters">
+                    <select name="zone">
+                        <option value="all">Todas las Zonas</option>
+                        <option value="a">Zona A (Profesores)</option>
+                        <option value="b">Zona B (Estudiantes)</option>
+                        <option value="c">Zona C (Visitantes)</option>
+                    </select>
+                    <button><i class='bx bx-search-alt'></i> Filtrar</button>
+                </div>
+                <img src="https://i.imgur.com/g7n1g5f.png" alt="Mapa del estacionamiento" class="map-image">
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageViews = document.querySelectorAll('.page-view');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    pageViews.forEach(v => v.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetViewId = this.getAttribute('href');
+                    document.querySelector(targetViewId).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
