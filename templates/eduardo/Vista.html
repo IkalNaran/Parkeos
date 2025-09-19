@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de Administración - Vehículos</title>
+  <style>
+    body {font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0;}
+    .container {max-width: 800px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px;}
+    header {display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+    header h1 {margin: 0; font-size: 20px;}
+    header p {margin: 0; font-size: 12px; color: gray;}
+    nav {display: flex; gap: 10px; margin-bottom: 20px;}
+    nav button {padding: 8px 12px; border: none; border-radius: 6px; background: #eee; cursor: pointer;}
+    nav .active {background: #007bff; color: #fff;}
+    .search-bar {display: flex; gap: 10px; margin-bottom: 20px;}
+    .search-bar input {flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px;}
+    .search-bar button {padding: 8px 12px; border: none; border-radius: 6px; background: #eee; cursor: pointer;}
+    .vehicle {display: flex; justify-content: space-between; align-items: center; border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin-bottom: 10px;}
+    .info {font-size: 14px;}
+    .info strong {display: block;}
+    .status {padding: 4px 8px; border-radius: 12px; font-size: 12px; color: #fff;}
+    .activo {background: #28a745;}
+    .pendiente {background: #6c757d;}
+    .actions button {padding: 6px 10px; border: none; border-radius: 6px; background: #007bff; color: #fff; cursor: pointer; margin-left: 5px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Panel de Administración</h1>
+        <p>Sistema de Gestión Parkeo's</p>
+      </div>
+      <button>Cerrar Sesión</button>
+    </header>
+
+    <nav>
+      <button>Resumen</button>
+      <button>Usuarios</button>
+      <button class="active">Vehículos</button>
+      <button>Estacionamiento</button>
+    </nav>
+
+    <h2>Gestión de Vehículos</h2>
+    <p>Gestionar vehículos registrados y códigos QR</p>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar vehículos...">
+      <button>Filtrar</button>
+    </div>
+
+    <div class="vehicle">
+      <div class="info">
+        <strong>ABC-1234</strong>
+        Toyota Camry • Juan Pérez
+      </div>
+      <div class="actions">
+        <span class="status activo">activo</span>
+        <button>Ver QR</button>
+        <button>Editar</button>
+      </div>
+    </div>
+
+    <div class="vehicle">
+      <div class="info">
+        <strong>XYZ-5678</strong>
+        Honda Civic • María García
+      </div>
+      <div class="actions">
+        <span class="status activo">activo</span>
+        <button>Ver QR</button>
+        <button>Editar</button>
+      </div>
+    </div>
+
+    <div class="vehicle">
+      <div class="info">
+        <strong>DEF-9012</strong>
+        Yamaha R15 • Carlos López
+      </div>
+      <div class="actions">
+        <span class="status activo">activo</span>
+        <button>Ver QR</button>
+        <button>Editar</button>
+      </div>
+    </div>
+
+    <div class="vehicle">
+      <div class="info">
+        <strong>GHI-3456</strong>
+        BMW X3 • Ana Rodríguez
+      </div>
+      <div class="actions">
+        <span class="status pendiente">pendiente</span>
+        <button>Ver QR</button>
+        <button>Editar</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
