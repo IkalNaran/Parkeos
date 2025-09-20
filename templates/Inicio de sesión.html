@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <charset="UTF-8">
+    <link rel="stylesheet" href="6.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Iniciar Sesión - Parkeo's</title>
+</head>
+<body>
+    <div class="l-container">
+        <div class="logo-container">
+            <i class="fas fa-car"></i>
+        </div>
+        <h2>Parkeo's</h2>
+        <h3>Gestión de Estacionamiento Escolar</h3>
+        
+        <div class="l-box">
+            <h4>Bienvenido de vuelta</h4>
+            <p>Inicia sesión para gestionar tu estacionamiento</p>
+            
+            <form action="#" method="POST">
+                <div class="us-roles">
+                    <p>Soy un:</p>
+                    <div class="role-options">
+                        <button type="button" class="role-btn selected"><i class="fas fa-user-graduate"></i> Estudiante</button>
+                        <button type="button" class="role-btn"><i class="fas fa-chalkboard-teacher"></i> Profesor</button>
+                        <button type="button" class="role-btn"><i class="fas fa-user"></i> Visitante</button>
+                        <button type="button" class="role-btn"><i class="fas fa-user-shield"></i> Administrador</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="Ingresa tu correo electrónico">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="Ingresa tu contraseña">
+                </div>
+                
+                <button type="send" class="btn-send">Iniciar Sesión</button>
+                
+                <div class="register-link">
+                    <p>¿No tienes cuenta? <a href="#">Registrarse</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
