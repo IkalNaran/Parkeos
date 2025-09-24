@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel de Administración - ParKeo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/home/zaid/Parkeos/static/css/administrador.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1 class="title">Panel de Administración</h1>
+        <div class="subtitle">Sistema de Gestión ParKeo</div>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn ghost">⚙️</button>
+        <button class="btn primary small">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab">Resumen</button>
+      <button class="tab">Usuarios</button>
+      <button class="tab">Vehículos</button>
+      <button class="tab active">Estacionamiento</button>
+    </nav>
+
+    <section class="kpis">
+      <div class="kpi card">
+        <div class="kpi-title">Capacidad Total</div>
+        <div class="kpi-row">
+          <div class="kpi-value">280</div>
+          <div class="kpi-icon">🚗</div>
+        </div>
+      </div>
+
+      <div class="kpi card">
+        <div class="kpi-title">Ocupado</div>
+        <div class="kpi-row">
+          <div class="kpi-value">184</div>
+          <div class="badge pill">66%</div>
+        </div>
+      </div>
+
+      <div class="kpi card">
+        <div class="kpi-title">Disponible</div>
+        <div class="kpi-row">
+          <div class="kpi-value">96</div>
+          <button class="icon-btn">＋</button>
+        </div>
+      </div>
+
+      <div class="kpi card">
+        <div class="kpi-title">Zonas</div>
+        <div class="kpi-row">
+          <div class="kpi-value">4</div>
+          <button class="icon-btn ghost">⚙️</button>
+        </div>
+      </div>
+    </section>
+
+    <main class="manager">
+      <h2>Gestión de Zonas de Estacionamiento</h2>
+      <p class="desc">Gestionar capacidad y configuraciones para cada zona de estacionamiento</p>
+
+      <!-- ZONA: Motocicletas -->
+      <article class="zone card">
+        <div class="zone-head">
+          <div class="zone-left">
+            <div class="zone-icon moto">🏍️</div>
+            <div>
+              <div class="zone-title">Zona de Motocicletas</div>
+              <div class="chips">
+                <span class="chip">estudiantes</span>
+                <span class="chip">profesores</span>
+                <span class="chip">visitantes</span>
+              </div>
+            </div>
+          </div>
+          <div class="zone-right">
+            <div class="occupancy-pill">64% ocupado</div>
+            <button class="icon-btn ghost small">⚙️</button>
+          </div>
+        </div>
+
+        <div class="zone-controls">
+          <div class="control-block">
+            <label>Capacidad Total</label>
+            <div class="number-control">
+              <button class="small">-</button>
+              <input type="text" value="50" readonly>
+              <button class="small">+</button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <label>Actualmente Ocupado</label>
+            <div class="info">32 espacios</div>
+          </div>
+
+          <div class="control-block">
+            <label>Espacios Disponibles</label>
+            <div class="badge success">18 espacios</div>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress"><div class="progress-fill" style="width:64%"></div></div>
+          <div class="progress-text">32 / 50</div>
+        </div>
+
+        <div class="zone-actions">
+          <button class="btn ghost">⚙️ Configurar</button>
+          <button class="btn ghost">🔍 Ver Detalles</button>
+          <button class="btn ghost">📑 Generar Reporte</button>
+        </div>
+      </article>
+
+      <!-- ZONA: Autos - Estudiantes -->
+      <article class="zone card">
+        <div class="zone-head">
+          <div class="zone-left">
+            <div class="zone-icon car">🚗</div>
+            <div>
+              <div class="zone-title">Zona de Autos - Estudiantes</div>
+              <div class="chips">
+                <span class="chip">estudiantes</span>
+              </div>
+            </div>
+          </div>
+          <div class="zone-right">
+            <div class="occupancy-pill orange">71% ocupado</div>
+            <button class="icon-btn ghost small">⚙️</button>
+          </div>
+        </div>
+
+        <div class="zone-controls">
+          <div class="control-block">
+            <label>Capacidad Total</label>
+            <div class="number-control">
+              <button class="small">-</button>
+              <input type="text" value="120" readonly>
+              <button class="small">+</button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <label>Actualmente Ocupado</label>
+            <div class="info">85 espacios</div>
+          </div>
+
+          <div class="control-block">
+            <label>Espacios Disponibles</label>
+            <div class="badge success">35 espacios</div>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress"><div class="progress-fill" style="width:71%"></div></div>
+          <div class="progress-text">85 / 120</div>
+        </div>
+
+        <div class="zone-actions">
+          <button class="btn ghost">⚙️ Configurar</button>
+          <button class="btn ghost">🔍 Ver Detalles</button>
+          <button class="btn ghost">📑 Generar Reporte</button>
+        </div>
+      </article>
+
+      <!-- ZONA: Profesores -->
+      <article class="zone card">
+        <div class="zone-head">
+          <div class="zone-left">
+            <div class="zone-icon teacher">👨‍🏫</div>
+            <div>
+              <div class="zone-title">Zona de Profesores</div>
+              <div class="chips">
+                <span class="chip">profesores</span>
+              </div>
+            </div>
+          </div>
+          <div class="zone-right">
+            <div class="occupancy-pill">56% ocupado</div>
+            <button class="icon-btn ghost small">⚙️</button>
+          </div>
+        </div>
+
+        <div class="zone-controls">
+          <div class="control-block">
+            <label>Capacidad Total</label>
+            <div class="number-control">
+              <button class="small">-</button>
+              <input type="text" value="80" readonly>
+              <button class="small">+</button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <label>Actualmente Ocupado</label>
+            <div class="info">45 espacios</div>
+          </div>
+
+          <div class="control-block">
+            <label>Espacios Disponibles</label>
+            <div class="badge success">35 espacios</div>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress"><div class="progress-fill" style="width:56%"></div></div>
+          <div class="progress-text">45 / 80</div>
+        </div>
+
+        <div class="zone-actions">
+          <button class="btn ghost">⚙️ Configurar</button>
+          <button class="btn ghost">🔍 Ver Detalles</button>
+          <button class="btn ghost">📑 Generar Reporte</button>
+        </div>
+      </article>
+
+      <!-- ZONA: Visitantes -->
+      <article class="zone card">
+        <div class="zone-head">
+          <div class="zone-left">
+            <div class="zone-icon visitor">🧑‍🤝‍🧑</div>
+            <div>
+              <div class="zone-title">Zona de Visitantes</div>
+              <div class="chips">
+                <span class="chip">visitantes</span>
+              </div>
+            </div>
+          </div>
+          <div class="zone-right">
+            <div class="occupancy-pill green">73% ocupado</div>
+            <button class="icon-btn ghost small">⚙️</button>
+          </div>
+        </div>
+
+        <div class="zone-controls">
+          <div class="control-block">
+            <label>Capacidad Total</label>
+            <div class="number-control">
+              <button class="small">-</button>
+              <input type="text" value="30" readonly>
+              <button class="small">+</button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <label>Actualmente Ocupado</label>
+            <div class="info">22 espacios</div>
+          </div>
+
+          <div class="control-block">
+            <label>Espacios Disponibles</label>
+            <div class="badge success">8 espacios</div>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress"><div class="progress-fill" style="width:73%"></div></div>
+          <div class="progress-text">22 / 30</div>
+        </div>
+
+        <div class="zone-actions">
+          <button class="btn ghost">⚙️ Configurar</button>
+          <button class="btn ghost">🔍 Ver Detalles</button>
+          <button class="btn ghost">📑 Generar Reporte</button>
+        </div>
+      </article>
+
+    </main>
+
+    <aside class="quick-actions card">
+      <h3>Acciones Rápidas</h3>
+      <div class="quick-grid">
+        <button class="btn">➕ Agregar Nueva Zona</button>
+        <button class="btn">⚙️ Configuraciones del Sistema</button>
+        <button class="btn">📤 Exportar Reporte</button>
+        <button class="btn">🔄 Reiniciar Contadores</button>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

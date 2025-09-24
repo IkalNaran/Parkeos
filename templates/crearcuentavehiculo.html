@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta - Vehículo</title>
+  <link rel="stylesheet" href="/home/zaid/Parkeos/static/css/crearcuentavehiculo.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Botón de atrás -->
+    <div class="back">← Atrás</div>
+
+    <!-- Card principal -->
+    <div class="card">
+      <h2>Crear Cuenta</h2>
+      <p class="step">Paso 3 de 3 - Detalles del Vehículo</p>
+
+      <!-- Progreso -->
+      <div class="progress">
+        <div class="bar active"></div>
+        <div class="bar active"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!-- Tipo de vehículo -->
+      <label class="label">Tipo de Vehículo</label>
+      <div class="vehicle-type">
+        <input type="radio" id="moto" name="vehiculo" value="Motocicleta">
+        <label for="moto" class="btn moto">🛵 Motocicleta</label>
+
+        <input type="radio" id="auto" name="vehiculo" value="Automóvil">
+        <label for="auto" class="btn auto">🚗 Automóvil</label>
+      </div>
+
+      <!-- Formulario -->
+      <form>
+        <label>Marca</label>
+        <input type="text" placeholder="">
+
+        <label>Modelo</label>
+        <input type="text" placeholder="">
+
+        <label>Año</label>
+        <input type="number" placeholder="">
+
+        <label>Placas</label>
+        <input type="text" placeholder="">
+
+        <label>Color</label>
+        <input type="text" placeholder="">
+
+        <button type="submit" class="submit">Completar Registro</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

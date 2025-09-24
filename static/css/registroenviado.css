@@ -1,0 +1,88 @@
+/* Fondo con degradado */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #5b0db3, #0a1ed1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #111;
+}
+
+/* Contenedor */
+.container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Botón atrás */
+.back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Card principal */
+.card {
+  background: #fff;
+  padding: 36px 28px;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+
+/* Icono check */
+.icon {
+  margin-bottom: 18px;
+}
+.circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #bbf7d0; /* verde claro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.circle span {
+  font-size: 32px;
+  color: #16a34a; /* verde fuerte */
+  font-weight: bold;
+}
+
+/* Título */
+.card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+/* Mensaje */
+.message {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Botón */
+.submit {
+  background: #0a1ed1;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+}
+.submit:hover {
+  background: #0715a5;
+}
