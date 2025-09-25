@@ -1,0 +1,130 @@
+/* Fondo con degradado */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #5b0db3, #0a1ed1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #111;
+}
+
+/* Contenedor */
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Botón atrás */
+.back {
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* Card principal */
+.card {
+  background: #f8f9fc;
+  padding: 28px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.card h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.card .step {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Barra de progreso */
+.progress {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 10px;
+  background: #cbd5e1;
+}
+.bar.active {
+  background: #0a1ed1;
+}
+
+/* Tipo de vehículo */
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+.vehicle-type {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+/* Ocultar radios */
+.vehicle-type input {
+  display: none;
+}
+
+/* Botones base */
+.vehicle-type .btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  background: #3b82f6; /* Azul por defecto */
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+/* Botón seleccionado = morado */
+.vehicle-type input:checked + label {
+  background: #b91c81;
+}
+
+/* Inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+form label {
+  font-size: 14px;
+  font-weight: 500;
+}
+form input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Botón submit */
+.submit {
+  margin-top: 10px;
+  background: #0a1ed1;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.submit:hover {
+  background: #0715a5;
+}
