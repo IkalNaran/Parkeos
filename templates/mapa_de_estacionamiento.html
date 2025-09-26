@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mapa de Estacionamiento</title>
+  <style>
+    body { font-family: Arial; background: #f0f0f0; margin: 0; padding: 0; }
+    .contenedor { width: 90%; max-width: 800px; margin: 20px auto; background: white; padding: 15px; }
+    h1 { font-size: 22px; margin-bottom: 5px; }
+    nav button { margin: 5px; padding: 8px; }
+    img { width: 100%; margin: 10px 0; }
+    .zona { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    .barra { height: 10px; background: #ccc; margin-top: 5px; }
+    .barra div { height: 10px; background: green; }
+    .status { font-size: 12px; background: #ccc; padding: 2px 6px; border-radius: 8px; }
+    .leyenda { border: 1px solid #ccc; padding: 10px; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+    .verde { background: green; }
+    .amarillo { background: orange; }
+    .rojo { background: red; }
+    .gris { background: gray; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Parkeo’s</h1>
+    <p>Bienvenido de vuelta, Juan Pérez</p>
+
+    <nav>
+      <button>Resumen</button>
+      <a href="/codigoqr">Mi Código QR</abutton>
+      <button style="background:blue; color:white;"> <a href="/mapaestacionamiento"></a>Mapa</button>
+    </nav>
+
+    <h2>Mapa de Estacionamiento</h2>
+    <p>Disponibilidad en tiempo real</p>
+    <img src="https://via.placeholder.com/600x300?text=Mapa+de+Estacionamiento" alt="Mapa">
+
+    <div class="zona">
+      <h3>Zona de Motocicletas</h3>
+      <p>18 disponibles - 32/50 ocupados - 64% ocupado</p>
+      <div class="barra"><div style="width:64%"></div></div>
+    </div>
+
+    <div class="zona">
+      <h3>Zona de Autos - Estudiantes</h3>
+      <p>35 disponibles - 85/120 ocupados - 71% ocupado</p>
+      <div class="barra"><div style="width:71%"></div></div>
+    </div>
+
+    <div class="zona">
+      <h3>Zona de Profesores</h3>
+      <p>35 disponibles - 45/80 ocupados - 56% ocupado <span class="status">Sin Acceso</span></p>
+      <div class="barra"><div style="width:56%"></div></div>
+    </div>
+
+    <div class="zona">
+      <h3>Zona de Visitantes</h3>
+      <p>8 disponibles - 22/30 ocupados - 73% ocupado <span class="status">Sin Acceso</span></p>
+      <div class="barra"><div style="width:73%"></div></div>
+    </div>
+
+    <div class="leyenda">
+      <h3>Leyenda</h3>
+      <p><span class="dot verde"></span> Menos del 75% ocupado</p>
+      <p><span class="dot amarillo"></span> 75-90% ocupado</p>
+      <p><span class="dot rojo"></span> Más del 90% ocupado</p>
+      <p><span class="dot gris"></span> Sin acceso</p>
+    </div>
+  </div>
+</body>
+</html>

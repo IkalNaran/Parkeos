@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="7.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/crear_cuenta.css">
+    
+    <title>Crear Cuenta - Parkeo's</title>
+</head>
+<body>
+    <div class="reg-container">
+        <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Atrás</a>
+        
+        <div class="reg-box">
+            <h4>Crear Cuenta</h4>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 33%;"></div>
+            </div>
+            <p class="pasos">Paso 1 de 3 - Tipo de Cuenta</p>
+            <p1 class="instruccion">Selecciona tu rol:</p1>
+            <div class="role-selection">
+                <a href="/templates/crear_estudiante.html"button type="button" class="role-option selected">
+                    <div class="icon-text">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="text">
+                            <h3>Estudiante</h3>
+                            <p>Estudiante inscrito actualmente</p>
+                        </div>
+                    </div>
+                </abutton>
+                <abutton href="/static/css/crear_profesor.css" type="button" class="role-option">
+                    <div class="icon-text">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div class="text">
+                            <h3>Profesor</h3>
+                            <p>Miembro del profesorado</p>
+                        </div>
+                    </div>
+                </abutton>
+                <a href="mapaestacionamiento" type="button" class="role-option">
+                    <div class="icon-text">
+                        <i class="fas fa-car"></i>
+                        <div class="text">
+                            <h3>Visitante</h3>
+                            <p>Acceso temporal al estacionamiento</p>
+                        </div>
+                    </div>
+                </abutton>
+            </div>
+            
+            <button class="btn-send">Continuar</button>
+        </div>
+    </div>
+</body>
+</html>
