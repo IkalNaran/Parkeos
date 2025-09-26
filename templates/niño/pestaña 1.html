@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 2em;
+    }
+
+    .tab {
+      font-weight: bold;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .tab.active {
+      color: #007bff;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 0.2em;
+    }
+
+    .summary-boxes {
+      display: flex;
+      gap: 2em;
+      padding: 2em;
+    }
+
+    .box {
+      background: white;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      flex: 1;
+      text-align: center;
+    }
+
+    .section {
+      background: white;
+      margin: 1em 2em;
+      padding: 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .section h3 {
+      margin-bottom: 1em;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5em 0;
+    }
+
+    .recent-activities {
+      list-style: none;
+      padding: 0;
+    }
+
+    .recent-activities li {
+      padding: 0.5em 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div><strong>Panel de Administración</strong></div>
+    <div class="tabs">
+      <div class="tab active">Resumen</div>
+      <div class="tab">Usuarios</div>
+      <div class="tab">Vehículos</div>
+      <div class="tab">Estacionamientos</div>
+    </div>
+    <div><a href="#">Cerrar Sesión</a></div>
+  </div>
+
+  <div class="summary-boxes">
+    <div class="box">
+      <div>Total de Usuarios</div>
+      <strong>245</strong>
+    </div>
+    <div class="box">
+      <div>Usuarios Activos</div>
+      <strong>66%</strong>
+    </div>
+    <div class="box">
+      <div>Aprobaciones Pendientes</div>
+      <strong>12</strong>
+    </div>
+    <div class="box">
+      <div>Registros Hoy</div>
+      <strong>10</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3> Resumen del Sistema</h3>
+    <div class="row"><span>Nuevos Registros</span><span>+23%</span></div>
+    <div class="row"><span>Uso Estacionamientos</span><span>84%</span></div>
+    <div class="row"><span>Tiempo de Aprobación</span><span>-15%</span></div>
+    <div class="row"><span>Satisfacción de Usuario</span><span>4.8/5</span></div>
+    <hr>
+    <div class="row"><span> Aprobaciones Pendientes</span><span>12</span></div>
+    <div class="row"><span> Zonas Cerca de Capacidad</span><span>2</span></div>
+    <div class="row"><span> Servicios Inactivos</span><span>1</span></div>
+  </div>
+
+  <div class="section">
+    <h3>🕒 Actividades Recientes</h3>
+    <ul class="recent-activities">
+      <li><span>Juan Pérez - Registro enviado</span><span>hace 12 minutos</span></li>
+      <li><span>Mario García - Usuario aprobado</span><span>hace 15 minutos</span></li>
+      <li><span>Carlos López - Código QR generado</span><span>hace 1 hora</span></li>
+      <li><span>Ana Rodríguez - Registro enviado</span><span>hace 3 horas</span></li>
+    </ul>
+  </div>
+
+</body>
+</html>

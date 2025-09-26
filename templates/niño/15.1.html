@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Estacionamiento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      padding: 20px;
+      color: #333;
+    }
+
+    .panel {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+
+    .tab {
+      padding: 8px 15px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .tab.active {
+      background-color: #0056ff;
+      color: white;
+    }
+
+    .welcome {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .status-box {
+      background-color: #eefbf0;
+      border-left: 5px solid #3cb371;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .status-box span {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      background-color: #3cb371;
+      color: white;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 20px;
+    }
+
+    .section {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      margin-top: 0;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .row .label {
+      color: #777;
+    }
+
+    .btn {
+      margin-top: 10px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .quick-actions button {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .quick-actions button:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="panel">
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active">Resumen</div>
+      <div class="tab">Mi Código QR</div>
+      <div class="tab">Mapa de Estacionamiento</div>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome">
+      Bienvenido de vuelta, <strong>Juan Pérez</strong>
+    </div>
+
+    <!-- Estado de la Cuenta -->
+    <div class="status-box">
+      Estado de la Cuenta<br>
+      Tu cuenta está activa. Usa tu código QR para acceder.
+      <span>Aprobado</span>
+    </div>
+
+    <!-- Vehículo Registrado -->
+    <div class="section">
+      <h3>Vehículo Registrado</h3>
+      <div class="row">
+        <div class="label">Marca y Modelo:</div>
+        <div>Toyota Camry</div>
+      </div>
+      <div class="row">
+        <div class="label">Año:</div>
+        <div>2020</div>
+      </div>
+      <div class="row">
+        <div class="label">Placas:</div>
+        <div>ABC-12345</div>
+      </div>
+      <div class="row">
+        <div class="label">Color:</div>
+        <div>Azul</div>
+      </div>
+      <button class="btn">Solicitar cambio de auto</button>
+    </div>
+
+    <!-- Acciones Rápidas -->
+    <div class="section quick-actions">
+      <h3>Acciones Rápidas</h3>
+      <button>📱 Ver Código QR</button>
+      <button>🗺️ Ver Mapa de Estacionamiento</button>
+    </div>
+  </div>
+
+</body>
+</html>
